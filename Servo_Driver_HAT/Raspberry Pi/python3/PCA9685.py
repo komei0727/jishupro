@@ -81,19 +81,34 @@ class PCA9685:
     pulse = pulse*4096*60/1000000        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, int(pulse))
 
+  def ConvertPulse(self, angle):
+    return 2000*angle/180 + 600
+
 if __name__=='__main__':
  
   pwm = PCA9685(0x40, debug=False)
   pwm.setPWMFreq(60)
   while True:
    # setServoPulse(2,2500)
-    for i in range(600,2610,10):
-      pwm.setServoPulse(0,i)
-      pwm.setServoPulse(1,i)
-      time.sleep(0.02)
+#    for i in range(600,2610,10):
+#      pwm.setServoPulse(0,i)
+#      pwm.setServoPulse(1,i)
+#      time.sleep(0.02)
 
-    for i in range(2600,590,-10):
-      pwm.setServoPulse(0,i)
-      pwm.setServoPulse(1,i)
-      time.sleep(0.02)
+#    for i in range(2600,590,-10):
+#      pwm.setServoPulse(0,i)
+#      pwm.setServoPulse(1,i)
+#      time.sleep(0.02)
+
+    for i in range(0, 180, 1):
+        pulse = pwm.ConvertPulse(i)
+        pwm.setServoPulse(0, pulse)
+        time.sleep(0.02)
+
+    for i in range(180, -1, -1):
+        pulse = pwm.ConvertPulse(i)
+        pwm.setServoPulse(0, pulse)
+        time.sleep(0.02)
+
+
 
