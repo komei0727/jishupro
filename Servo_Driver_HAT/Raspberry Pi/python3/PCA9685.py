@@ -3,6 +3,7 @@
 import time
 import math
 import smbus
+import csv
 
 # ============================================================================
 # Raspi PCA9685 16-Channel PWM Servo Driver
@@ -88,27 +89,25 @@ if __name__=='__main__':
  
   pwm = PCA9685(0x40, debug=False)
   pwm.setPWMFreq(60)
-  while True:
-   # setServoPulse(2,2500)
-#    for i in range(600,2610,10):
-#      pwm.setServoPulse(0,i)
-#      pwm.setServoPulse(1,i)
-#      time.sleep(0.02)
+  #while True:
+   # for i in range(0, 180, 1):
+    #    pulse = pwm.ConvertPulse(i)
+     #   pwm.setServoPulse(0, pulse)
+      #  time.sleep(0.02)
 
-#    for i in range(2600,590,-10):
-#      pwm.setServoPulse(0,i)
-#      pwm.setServoPulse(1,i)
-#      time.sleep(0.02)
+   # for i in range(180, -1, -1):
+    #    pulse = pwm.ConvertPulse(i)
+     #   pwm.setServoPulse(0, pulse)
+      #  time.sleep(0.02)
 
-    for i in range(0, 180, 1):
-        pulse = pwm.ConvertPulse(i)
-        pwm.setServoPulse(0, pulse)
-        time.sleep(0.02)
+  with open('sample.csv') as f:
+      reader = csv.reader(f)
+      angles = [row for row in reader]
 
-    for i in range(180, -1, -1):
-        pulse = pwm.ConvertPulse(i)
-        pwm.setServoPulse(0, pulse)
-        time.sleep(0.02)
-
-
+  for i in range(len(angles)):
+      pulse1 = pwm.ConvertPulse(int(angles[i][0]))
+      pulse2 = pwm.ConvertPulse(int(angles[i][1]))
+      pwm.setServoPulse(0, pulse1)
+      pwm.setServoPulse(1, pulse2)
+      time.sleep(0.02)
 
