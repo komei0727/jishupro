@@ -87,11 +87,13 @@ if __name__=='__main__':
   pwm.setPWMFreq(60)
   while True:
    # setServoPulse(2,2500)
-    for i in range(500,2400,10):
+    for i in range(600,2610,10):
       pwm.setServoPulse(0,i)
+      pwm.setServoPulse(1,i)
       time.sleep(0.02)
 
-    for i in range(2400,500,-10):
+    for i in range(2600,590,-10):
       pwm.setServoPulse(0,i)
+      pwm.setServoPulse(1,i)
       time.sleep(0.02)
 
