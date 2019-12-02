@@ -32,20 +32,20 @@ class PCA9685:
     if (self.debug):
       print("Reseting PCA9685")
     self.write(self.__MODE1, 0x00)
-	
+
   def write(self, reg, value):
     "Writes an 8-bit value to the specified register/address"
     self.bus.write_byte_data(self.address, reg, value)
     if (self.debug):
       print("I2C: Write 0x%02X to register 0x%02X" % (value, reg))
-	  
+
   def read(self, reg):
     "Read an unsigned byte from the I2C device"
     result = self.bus.read_byte_data(self.address, reg)
     if (self.debug):
       print("I2C: Device 0x%02X returned 0x%02X from reg 0x%02X" % (self.address, result & 0xFF, reg))
     return result
-	
+
   def setPWMFreq(self, freq):
     "Sets the PWM frequency"
     prescaleval = 25000000.0    # 25MHz
@@ -78,15 +78,16 @@ class PCA9685:
 	  
   def setServoPulse(self, channel, pulse):
     "Sets the Servo Pulse,The PWM frequency must be 50HZ"
-    pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
+    pulse = pulse*4096*60/1000000        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, int(pulse))
 
 if __name__=='__main__':
  
   pwm = PCA9685(0x40, debug=False)
-  pwm.setPWMFreq(50)
+  pwm.setPWMFreq(60)
   while True:
    # setServoPulse(2,2500)
+<<<<<<< HEAD
     for i in range(500,2500,10):  
       pwm.setServoPulse(0,i)   
       pwm.setServoPulse(1,i)   
@@ -96,3 +97,12 @@ if __name__=='__main__':
       pwm.setServoPulse(0,i) 
       pwm.setServoPulse(1,i) 
       time.sleep(0.02)  
+=======
+    for i in range(500,2400,10):
+      pwm.setServoPulse(0,i)
+      time.sleep(0.02)
+
+    for i in range(2400,500,-10):
+      pwm.setServoPulse(0,i)
+      time.sleep(0.02)
+>>>>>>> 794cefa0380009ae53cd1d6a22b4fc586100d944
