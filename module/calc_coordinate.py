@@ -3,7 +3,7 @@ from spline import Spline
 import numpy as np
 import matplotlib.pyplot as plt
 
-with open('data/あ_original_3.csv') as f:
+with open('data/あ_original_2.csv') as f:
     reader = csv.reader(f)
     l = [row for row in reader]
     l_int = [[int(v) for v in row] for row in l]
@@ -69,6 +69,6 @@ if len(l_int)%3 == 0:
         Y.append(100-y_c[j+1])
 
 
-with open('data/あ_3.csv', 'w') as f:
+with open('data/あ_2.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerows(np.array([X,Y]).T)

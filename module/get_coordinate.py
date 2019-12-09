@@ -83,6 +83,6 @@ if __name__ == "__main__":
     print(Y)
     print("Finished")
 
-    with open('data/あ_original_3.csv', 'w') as f:
+    with open('data/あ_original_2.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerows(np.array([X,Y]).T)

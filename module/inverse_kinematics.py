@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-with open('data/あ_3.csv') as f:
+with open('data/あ_2.csv') as f:
     reader = csv.reader(f)
     l = [row for row in reader]
     l_float = [[float(v)/10 for v in row] for row in l]
@@ -22,6 +22,6 @@ for i in range(len(l_float)):
     thete2 = [np.arccos(cos[0][1]) * 360 / (2*np.pi), np.arccos(cos[1][1]) * 360 / (2*np.pi)]
     X.append([thete1[0],thete2[1]])
 
-with open('angle_data/あ_3.csv', 'w') as f:
+with open('angle_data/あ_2.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerows(X)
