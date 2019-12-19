@@ -52,4 +52,4 @@ if __name__ == "__main__":
         writer.writerows(np.array([X,Y]).T)
 
     calc_coordinate(original_data, data)
-    inverse_kinematics(data, angle_data)
+    #inverse_kinematics(data, angle_data)

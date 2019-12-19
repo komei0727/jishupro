@@ -101,7 +101,7 @@ def calc_coordinate(input_file, output_file):
             y_c, x_c = spline.calc()
         for j in range(len(x_c)-1):
             X.append(x_c[j+1])
-            Y.append(100-y_c[j+1])
+            Y.append(y_c[j+1])
 
 
     with open(output_file, 'w') as f:

@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-def inverse_kinematics(input_file, output_file):
+def inverse_kinematics(input_file):
     with open(input_file) as f:
         reader = csv.reader(f)
         l = [row for row in reader]
@@ -23,6 +23,7 @@ def inverse_kinematics(input_file, output_file):
         thete2 = [np.arccos(cos[0][1]) * 360 / (2*np.pi), np.arccos(cos[1][1]) * 360 / (2*np.pi)]
         X.append([thete1[0],thete2[1]])
 
-    with open(output_file, 'w') as f:
-        writer = csv.writer(f)
-        writer.writerows(X)
+    #with open(output_file, 'w') as f:
+    #   writer = csv.writer(f)
+    #   writer.writerows(X)
+    return X
