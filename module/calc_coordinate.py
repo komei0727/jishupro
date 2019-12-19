@@ -57,11 +57,11 @@ def calc_coordinate(input_file, output_file):
             spline = Spline(y,x)
             y_c, x_c = spline.calc()
         if i == 0:
-            X.append(x_c[0])
-            Y.append(100-y_c[0])
+            X.append(100-x_c[0])
+            Y.append(y_c[0])
         for j in range(len(x_c)-1):
-            X.append(x_c[j+1])
-            Y.append(100-y_c[j+1])
+            X.append(100-x_c[j+1])
+            Y.append(y_c[j+1])
     if len(l_int)%3 == 2:
         x1 = l_int[:,0][-2]
         x2 = l_int[:,0][-1]
@@ -76,8 +76,8 @@ def calc_coordinate(input_file, output_file):
             spline = Spline(x,y)
             x_c, y_c = spline.calc()
         for j in range(len(x_c)-1):
-            X.append(x_c[j+1])
-            Y.append(100-y_c[j+1])
+            X.append(100-x_c[j+1])
+            Y.append(y_c[j+1])
     if len(l_int)%3 == 0:
         x1 = l_int[:,0][-3]
         x2 = l_int[:,0][-2]
@@ -100,7 +100,11 @@ def calc_coordinate(input_file, output_file):
             spline = Spline(y,x)
             y_c, x_c = spline.calc()
         for j in range(len(x_c)-1):
+<<<<<<< HEAD
             X.append(x_c[j+1])
+=======
+            X.append(100-x_c[j+1])
+>>>>>>> b08896c0c855bf8ee45530d01c3eb2d0027c94c0
             Y.append(y_c[j+1])
 
 
