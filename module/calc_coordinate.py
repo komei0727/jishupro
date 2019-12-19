@@ -100,11 +100,7 @@ def calc_coordinate(input_file, output_file):
             spline = Spline(y,x)
             y_c, x_c = spline.calc()
         for j in range(len(x_c)-1):
-<<<<<<< HEAD
-            X.append(x_c[j+1])
-=======
             X.append(100-x_c[j+1])
->>>>>>> b08896c0c855bf8ee45530d01c3eb2d0027c94c0
             Y.append(y_c[j+1])
 
 
