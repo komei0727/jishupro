@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-def inverse_kinematics(input_file):
+def inverse_kinematics(input_file, dx, dy):
     with open(input_file) as f:
         reader = csv.reader(f)
         l = [row for row in reader]
@@ -13,7 +13,7 @@ def inverse_kinematics(input_file):
     m = np.array([50, 50])
     X = []
     for i in range(len(l_float)):
-        x = l_float[i] + [-50, 55]
+        x = l_float[i] + [dx, dy]
         p = 2 * l * (x[0] - b[:,0])
         q = 2 * l * (x[1] - b[:,1])
         r = (x[0] - b[:,0])**2 + (x[1] - b[:,1])**2 + l**2 - m**2
