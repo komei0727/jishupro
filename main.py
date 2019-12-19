@@ -13,7 +13,7 @@ if __name__=='__main__':
   #with open('angle_data/a_1.csv') as f:
   #    reader = csv.reader(f)
   #    angles = [row for row in reader]
-  angles = inverse_kinematics('data/あ_1.csv', 55, 45)
+  angles = inverse_kinematics('data/あ_1.csv', 50, 45)
   for i in range(len(angles)):
       pulse1 = pwm.ConvertPulse(float(angles[i][0]))
       pulse2 = pwm.ConvertPulse(float(angles[i][1]))
@@ -25,7 +25,7 @@ if __name__=='__main__':
   #    reader = csv.reader(f)
   #    angles = [row for row in reader]
 
-  angles = inverse_kinematics('data/あ_2.csv', 55, 45)
+  angles = inverse_kinematics('data/あ_2.csv', 50, 45)
   for i in range(len(angles)):
       pulse1 = pwm.ConvertPulse(float(angles[i][0]))
       pulse2 = pwm.ConvertPulse(float(angles[i][1]))
@@ -37,7 +37,7 @@ if __name__=='__main__':
   #    reader = csv.reader(f)
   #    angles = [row for row in reader]
 
-  angles = inverse_kinematics('data/あ_3.csv', 55, 45)
+  angles = inverse_kinematics('data/あ_3.csv', 50, 45)
   for i in range(len(angles)):
       pulse1 = pwm.ConvertPulse(float(angles[i][0]))
       pulse2 = pwm.ConvertPulse(float(angles[i][1]))
