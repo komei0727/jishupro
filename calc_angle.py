@@ -5,9 +5,9 @@ from module.get_coordinate import mouseParam
 from module.calc_coordinate import calc_coordinate
 from module.inverse_kinematics import inverse_kinematics
 
-image = "image/ぐ.jpg"
-original_data = "data/ぐ_original_3.csv"
-data = "data/ぐ_3.csv"
+image = "image/げ.jpg"
+original_data = "data/げ_original_5.csv"
+data = "data/げ_5.csv"
 #angle_data = "angle_data/あ_2.csv"
 
 if __name__ == "__main__":
