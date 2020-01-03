@@ -90,14 +90,14 @@ if __name__=='__main__':
   pwm = PCA9685(0x40, debug=False)
   pwm.setPWMFreq(60)
   while True:
-    for i in range(60, 39, -1):
+    for i in range(0, 180, 1):
         pulse = pwm.ConvertPulse(i)
-        pwm.setServoPulse(0, pulse)
+        pwm.setServoPulse(1, pulse)
         time.sleep(0.02)
 
-    for i in range(40, 60, 1):
+    for i in range(180, -1, -1):
         pulse = pwm.ConvertPulse(i)
-        pwm.setServoPulse(0, pulse)
+        pwm.setServoPulse(1, pulse)
         time.sleep(0.02)
 
 

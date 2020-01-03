@@ -1,7 +1,7 @@
 import writing
 
-writing.あ(50, 45)
-#writing.い(40, 45)
-#writing.う(30, 45)
-#writing.え(20, 45)
-#writing.お(10, 45)
+writing.あ(20, 45)
+writing.い(10, 45)
+writing.う(0, 45)
+writing.え(-10, 45)
+writing.お(-20, 45)
