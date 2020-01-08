@@ -6,7 +6,7 @@ from module.inverse_kinematics import inverse_kinematics
 def _down():
   pwm = PCA9685(0x40, debug=False)
   pwm.setPWMFreq(60)
-  for i in range(60, 46, -1):
+  for i in range(60, 43, -1):
     pulse = pwm.ConvertPulse(i)
     pwm.setServoPulse(2, pulse)
     time.sleep(0.02)
@@ -14,10 +14,26 @@ def _down():
 def _up():
   pwm = PCA9685(0x40, debug=False)
   pwm.setPWMFreq(60)
-  for i in range(46, 60, 1):
+  for i in range(43, 60, 1):
     pulse = pwm.ConvertPulse(i)
     pwm.setServoPulse(2, pulse)
     time.sleep(0.02)
+
+def _writing(angles):
+    pwm = PCA9685(0x40, debug=False)
+    pwm.setPWMFreq(60)
+    for i in range(len(angles)):
+        _up()
+        for j in range(len(angles[i])):
+            pulse1 = pwm.ConvertPulse(float(angles[i][j][0]))
+            pulse2 = pwm.ConvertPulse(float(angles[i][j][1]))
+            pwm.setServoPulse(0, pulse1)
+            pwm.setServoPulse(1, pulse2)
+            time.sleep(0.001)
+            if j==0:
+                _down()
+
+
 
 def あ(dx, dy):
   pwm = PCA9685(0x40, debug=False)
@@ -179,4 +195,11 @@ def お(dx, dy):
       if i==0:
           _down()
 
+def か(dx, dy):
+  _up()
+  angles1 = inverse_kinematics('data/か_1.csv', dx, dy)
+  angles2 = inverse_kinematics('data/か_2.csv', dx, dy)
+  angles3 = inverse_kinematics('data/か_3.csv', dx, dy)
+  angles = [angles1, angles2, angles3]
+  _writing(angles)
 
