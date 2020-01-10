@@ -121,9 +121,9 @@ def こ(dx, dy):
 
 def さ(dx, dy):
   _up()
-  angles1 = inverse_kinematics('data/か_1.csv', dx, dy)
-  angles2 = inverse_kinematics('data/か_2.csv', dx, dy)
-  angles3 = inverse_kinematics('data/か_3.csv', dx, dy)
+  angles1 = inverse_kinematics('data/さ_1.csv', dx, dy)
+  angles2 = inverse_kinematics('data/さ_2.csv', dx, dy)
+  angles3 = inverse_kinematics('data/さ_3.csv', dx, dy)
   angles = [angles1, angles2, angles3]
   _writing(angles)
 
